@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Rating</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body {
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: rgb(56, 216, 216);
+}
+.box {
+  position: relative;
+  background: #f8f7f7;
+  padding: 25px 50px 35px;
+  border-radius: 25px;
+}
+.box header {
+   font-size: 22px;
+   color: #d62d2d;
+   font-weight: 500;
+   margin-bottom: 20px;
+   text-align: center;
+}
+.box .stars {
+   display: flex;
+   align-items: center;
+   gap: 25px;
+}
+.stars i {
+  color: #e6e6e6;
+  font-size: 35px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.stars i.active {
+  color:gold;
+}
+</style>
+</head>
+<body>
+    <div class="box">
+        <header>How was your experience?</header>
+        <div class="stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+      </div>
+</body>
+<script>
+    const stars = document.querySelectorAll(".stars i");
+
+    stars.forEach((star, index1) => {
+        star.addEventListener("click", () => {
+            stars.forEach((star, index2) => {
+                index1 >= index2 ? star.classList.add("active") : 
+                star.classList.remove("active");
+            });
+        });
+    });
+</script>
+</html>
